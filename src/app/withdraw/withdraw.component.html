@@ -1,0 +1,34 @@
+<h2>Withdraw</h2>
+<div>
+  <label for="amount">Enter amount:</label>
+  <input type="number" [(ngModel)]="withdrawAmount">
+</div>
+<div>
+  <button (click)="withdraw()">Withdraw</button>
+</div>
+<div *ngIf="withdrawnMessage">
+  <p class="error">{{ withdrawnMessage }}</p>
+</div>
+<div *ngIf="withdrawnTotal !== 0">
+  <p>Total Withdrawn: {{ withdrawnTotal }}</p>
+  <p>Remaining Balance: {{ depositTotal - withdrawnTotal }}</p>
+</div>
+<div *ngIf="withdrawnTimestamp">
+  <p>Withdrawn at: {{ withdrawnTimestamp | date:'medium' }}</p>
+</div>
+
+<table *ngIf="allWithdrawals.length > 0">
+  <caption>All Withdrawals</caption>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let withdrawal of allWithdrawals">
+      <td>{{ withdrawal.amount }}</td>
+      <td>{{ withdrawal.timestamp | date:'medium' }}</td>
+    </tr>
+  </tbody>
+</table>

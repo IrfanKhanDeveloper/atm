@@ -1,0 +1,26 @@
+<h2>Deposit</h2>
+<div>
+  <label for="amount">Enter amount for 100:</label>
+  <input type="number" [(ngModel)]="depositAmount100">
+</div>
+<div>
+  <label for="amount">Enter amount for 200:</label>
+  <input type="number" [(ngModel)]="depositAmount200">
+</div>
+<div>
+  <label for="amount">Enter amount for 500:</label>
+  <input type="number" [(ngModel)]="depositAmount500">
+</div>
+<div>
+  <label for="amount">Enter amount for 2000:</label>
+  <input type="number" [(ngModel)]="depositAmount2000">
+</div>
+<div>
+  <button (click)="deposit()">Deposit</button>
+</div>
+<div *ngIf="depositTotal !== 0">
+  <p>Total Deposited: {{ depositTotal }}</p>
+</div>
+<div *ngIf="depositMessage">
+  <p class="error">{{ depositMessage }}</p>
+</div>
